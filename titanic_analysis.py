@@ -20,3 +20,29 @@ print(titanic.isnull().sum())
 # 50%: 2사분위수(중앙값, 50th percentile)는 데이터의 중간값을 나타냅니다.
 # 75%: 3사분위수(75th percentile)는 데이터의 상위 25%가 포함되는 값입니다.
 # max: 해당 feature의 최대값을 보여줍니다.
+
+# 6. 결측치 처리
+# - Age(나이)의 결측치는 중앙값으로 대체합니다.
+titanic['age'].fillna(titanic['age'].median(), inplace=True)
+
+# - Embarked(승선 항구)의 결측치는 최빈값으로 대체합니다.
+titanic['embarked'].fillna(titanic['embarked'].mode()[0], inplace=True)
+
+# 7. 수치형으로 인코딩
+# - 성별(Sex)을 숫자로 변환합니다: 남자는 0, 여자는 1
+titanic['sex'] = titanic['sex'].map({'male': 0, 'female': 1})
+
+# - 생존 여부(alive)를 숫자로 변환합니다: 살아있으면 1, 죽었으면 0
+titanic['alive'] = titanic['survived'].map({0: 0, 1: 1})
+
+# - 승선 항구(Embarked)를 숫자로 변환합니다: 'C'는 0, 'Q'는 1, 'S'는 2
+titanic['embarked'] = titanic['embarked'].map({'C': 0, 'Q': 1, 'S': 2})
+
+# 8. 새로운 feature 생성: 가족 크기
+# - SibSp(타이타닉호에 동승한 자매 및 배우자의 수)와 Parch(부모 및 자식의 수)를 합쳐 가족 크기를 계산합니다.
+# - 본인을 포함하기 위해 1을 더합니다.
+titanic['family_size'] = titanic['sibsp'] + titanic['parch'] + 1
+
+# 9. 최종 결과 확인
+# - 생성된 feature들을 출력하여 확인합니다.
+print(titanic[['sex', 'alive', 'embarked', 'family_size']].head())
