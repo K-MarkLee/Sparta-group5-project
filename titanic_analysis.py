@@ -1,4 +1,6 @@
-import seaborn as sns
+import seaborn as sns  # seaborn 라이브러리를 불러옵니다.
+from sklearn.model_selection import train_test_split  # 데이터 분할을 위한 라이브러리
+from sklearn.preprocessing import StandardScaler  # 데이터 스케일링을 위한 라이브러리
 
 # 타이타닉 데이터셋을 불러옵니다.
 titanic = sns.load_dataset('titanic')
@@ -46,3 +48,20 @@ titanic['family_size'] = titanic['sibsp'] + titanic['parch'] + 1
 # 9. 최종 결과 확인
 # - 생성된 feature들을 출력하여 확인합니다.
 print(titanic[['sex', 'alive', 'embarked', 'family_size']].head())
+
+# 10. 모델 학습을 위한 데이터 준비
+# - 필요한 feature와 target을 선택합니다.
+titanic = titanic[['survived', 'pclass', 'sex', 'age', 'sibsp', 'parch', 'fare', 'embarked', 'family_size']]
+X = titanic.drop('survived', axis=1)  # feature
+y = titanic['survived']  # target
+
+# 11. 데이터 스케일링
+scaler = StandardScaler()  # StandardScaler 객체 생성
+X_scaled = scaler.fit_transform(X)  # 데이터를 스케일링합니다.
+
+# 12. 학습 데이터와 테스트 데이터 분할
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# 13. 결과 확인
+print("학습 데이터 형태:", X_train.shape)
+print("테스트 데이터 형태:", X_test.shape)
