@@ -31,3 +31,8 @@
 -   (필수 과제) 랜덤 포레스트
 -   (도전 과제) 데이터 전처리 와 feature분석
 -   (발표) 자료준비
+
+
+
+## SA Document
+[https://www.notion.so/teamsparta/SA-Document-11f2dc3ef51481e889c1d3071568533d](https://www.notion.so/teamsparta/SA-Document-11f2dc3ef51481e889c1d3071568533d)
