@@ -24,18 +24,18 @@
 -   팀 미팅 문서 관리
 -   (필수과제) 로지스틱 회귀 모델
 -   (도전과제) NLP
--   (발표) 자료준비:computer:
+-   (발표) 자료준비 :computer:
 
 ### 서승화
 
--   팀원
+-   팀원 :construction_worker:
 -   (필수과제) XGBoost
 -   (도전 과제) 워드 클라우드
--   (발표) 발표 ppt 준비 및 자료정리:computer:
+-   (발표) 발표 ppt 준비 및 자료정리 :computer:
 
 ### 오태우
 
--   팀원
+-   팀원 :construction_worker:
 -   (필수 과제) 랜덤 포레스트
 -   (도전 과제) 데이터 전처리 와 feature분석
--   (발표) 자료준비:computer:
+-   (발표) 자료준비 :computer:
